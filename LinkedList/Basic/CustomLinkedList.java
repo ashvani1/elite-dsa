@@ -1,4 +1,4 @@
-package DataStructure.LinkedList.Easy;
+package LinkedList.Basic;
 
 import java.util.HashMap;
 import java.util.Map;

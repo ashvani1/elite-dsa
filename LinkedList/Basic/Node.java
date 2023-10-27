@@ -1,4 +1,4 @@
-package DataStructure.LinkedList.Easy;
+package LinkedList.Basic;
 
 public class Node {
     private Node next; //pointer
