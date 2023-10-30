@@ -41,7 +41,7 @@ public class Qn22 {
 }
 
 /*
-TC: even though there are 2 while loops but we are traversing all nodes only once so O[n]
+TC: even though there are 2 while loops, but we are traversing all nodes only once so O[n]
 SC: storing all values in our answer array O[n] + storing all nodes in queue O[n] => almost O[2n]
 
 https://leetcode.com/problems/binary-tree-level-order-traversal/

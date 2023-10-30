@@ -5,43 +5,40 @@ import java.util.*;
 
 public class Qn9 {
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+        //we will be holding leaf nodes of given trees in 2 different list and then we will compare these values
         List<Integer> list1 = new ArrayList<>();
         List<Integer> list2 = new ArrayList<>();
-        collectLeafNodes(root1, list1);
-        collectLeafNodes(root2, list2);
 
-        if (list1.size() != list2.size()) {
+        fillTheList(root1, list1);
+        fillTheList(root2, list2);
+
+        System.out.println("size of list "+list1);
+        System.out.println("size of list2 "+list2);
+        if(list1.size() != list2.size())
+        {
             return false;
-        } else {
-            int i = 0;
-            while (i < list1.size() && i < list2.size()) {
-                if (list1.get(i) != list2.get(i)) {
-                    return false;
-                }
-
-                i++;
+        }
+        int n = list1.size();
+        for(int i = 0 ; i < n; i++) {
+            if(list1.get(i) != list2.get(i)) {
+                return false;
             }
         }
         return true;
     }
 
-    private void collectLeafNodes(TreeNode root, List<Integer> list) {
-        if (root == null)
+    void fillTheList(TreeNode root, List<Integer> list) {
+        if(root == null)
             return;
 
-        if (root.left == null && root.right == null)
+        //leaf node
+        if(root.left == null && root.right == null)
             list.add(root.val);
-
-        if (root.left != null) {
-            collectLeafNodes(root.left, list);
-        }
-
-        if (root.right != null) {
-            collectLeafNodes(root.right, list);
-        }
-
+        fillTheList(root.left, list);
+        fillTheList(root.right, list);
     }
 }
+
 /*
 https://leetcode.com/problems/leaf-similar-trees/
 * */

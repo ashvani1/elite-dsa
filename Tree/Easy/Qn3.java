@@ -10,6 +10,7 @@ public class Qn3 {
         return list;
     }
 
+    //must be solved by Stack, now queue
     private void preOrderUsingStack(TreeNode root, List list) {
         Stack<TreeNode> St = new Stack<>();
         St.add(root);
@@ -17,7 +18,7 @@ public class Qn3 {
         if (root == null)
             return;
 
-        while (!St.empty()) {
+        while (!St.empty()) {                               //Queue has isEmpty() whereas Stack has empty()
             TreeNode current = St.pop();
             list.add(current.val);
 

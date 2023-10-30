@@ -58,4 +58,7 @@ public class Qn6 {
 
 /*
 https://www.geeksforgeeks.org/inorder-traversal-of-an-n-ary-tree/
+
+Approach: The inorder traversal of an N-ary tree is defined as visiting all the children except the last then the root
+and finally the last child recursively.
  */

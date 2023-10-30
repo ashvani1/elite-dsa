@@ -10,22 +10,21 @@ public class Qn12 {
         return list;
     }
 
-    private void findPaths(TreeNode root, List<String> ans, String currentAns) {
-        if (root == null)
+    void findPaths(TreeNode root, List<String> list, String currentString) {
+        if(root == null)
             return;
 
-        if (root.left == null && root.right == null) {
-            currentAns = currentAns + String.valueOf(root.val);
-            ans.add(currentAns);
-            currentAns = "";
-        }
+        if(currentString.length() == 0)
+            currentString = currentString + root.val;
 
-        currentAns = currentAns + String.valueOf(root.val);
+        else
+            currentString = currentString + "->" + (root.val);
 
-        findPaths(root.left, ans, currentAns + "->");
+        if(root.left == null && root.right == null)
+            list.add(currentString);
 
-        findPaths(root.right, ans, currentAns + "->");
-
+        findPaths(root.left, list, currentString);
+        findPaths(root.right, list, currentString);
     }
 }
 /*

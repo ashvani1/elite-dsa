@@ -7,6 +7,7 @@ public class Qn8 {
     public List<Integer> postOrder(Node root) {
         List<Integer> answer = new ArrayList<Integer>();
         postOrder(root, answer);
+        //Below is the tweak in iterative approach
         Collections.reverse(answer);
         return answer;
     }

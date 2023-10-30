@@ -1,30 +1,55 @@
 //Univalued Binary Tree
 package Tree.Easy;
+import java.util.*;
 
 public class Qn11 {
-    public boolean isUniValueTree(TreeNode root) {
-        if (root == null)
-            return true;
-        return findVal(root, root.val);
+    boolean f = true;
+    public boolean isUnivalTree(TreeNode root) {
+        //return bfsSolution(root);
+        return dfsSolution(root);
     }
 
-    private boolean findVal(TreeNode root, int rootVal) {
-        if (root == null)
+    boolean dfsSolution(TreeNode root) {
+        if(root == null)
             return true;
 
-        if (root.val != rootVal)
-            return false;
+        Queue<TreeNode> Q = new LinkedList<>();
+        Q.add(root);
+        int value = root.val;
+        while(!Q.isEmpty()) {
+            TreeNode current = Q.remove();
+            if(current.val != value)
+                return false;
 
-        boolean leftAns = true;
-        boolean rightAns = true;
-        if (root.left != null)
-            leftAns = findVal(root.left, rootVal);
+            if(current.left != null)
+                Q.add(current.left);
 
-        if (root.right != null)
-            rightAns = findVal(root.right, rootVal);
+            if(current.right != null)
+                Q.add(current.right);
+        }
+        return true;
+    }
 
 
-        return (leftAns && rightAns);
+
+
+
+    boolean bfsSolution(TreeNode root) {
+        //will implement by preorder
+        int value = root.val;
+        uniVal(root, value);
+        return f;
+    }
+
+    void uniVal(TreeNode root, int value) {
+        if(root == null)
+            return;
+
+        if(value != root.val)
+            f = false;
+
+        uniVal(root.left, value);
+        uniVal(root.right, value);
     }
 }
 /*

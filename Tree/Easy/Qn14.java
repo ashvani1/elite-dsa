@@ -1,4 +1,4 @@
-//https://leetcode.com/problems/path-sum/
+//Path Sum
 package Tree.Easy;
 
 public class Qn14 {
@@ -20,3 +20,5 @@ public class Qn14 {
                 findPathSum(root.right, targetSum, currentSum + root.val);
     }
 }
+
+//https://leetcode.com/problems/path-sum/
